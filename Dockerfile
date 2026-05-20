@@ -12,8 +12,8 @@ COPY client ./client
 
 RUN npm run build -w client
 RUN cp -r client/dist server/public
-RUN npm run build -w server
 RUN npm run db:generate -w server
+RUN npm run build -w server
 
 FROM node:22-alpine AS run
 WORKDIR /app
